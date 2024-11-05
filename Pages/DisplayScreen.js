@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default { DisplayScreen1, DisplayScreen2, DisplayScreen3 };
+export { DisplayScreen1, DisplayScreen2, DisplayScreen3 };
