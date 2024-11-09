@@ -13,7 +13,7 @@ const ProductPreview = ({ products }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.productContainer}
-            onPress={() => navigation.navigate('ProductDetail', { product: item })}
+            onPress={() => navigation.navigate('Product Detail', { product: item })}
           >
             <Image source={{ uri: item.image }} style={styles.productImage} />
             <Text style={styles.productName}>{item.name}</Text>
