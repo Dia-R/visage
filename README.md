@@ -56,8 +56,6 @@ Follow the steps below to set up the project locally:
    ```
 
 ## Overview of File Structure
-
-    ```bash
     /visage
     ├── /assets         # Image assets, icons, etc.
     ├── /components     # Reusable components
