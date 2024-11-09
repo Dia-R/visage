@@ -10,9 +10,7 @@
 - [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Features
 
