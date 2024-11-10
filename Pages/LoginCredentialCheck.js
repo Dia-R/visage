@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { createClient } from '@supabase/supabase-js';
+
+
+const supabaseUrl = 'https://sxxwomaefzwjeubrdgta.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY 
+
+// Initialize Supabase client
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (email === 'a' && password === 'a') {
-      onLogin();
+  const handleLogin = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      Alert.alert('Login Failed', error.message);
     } else {
-      Alert.alert('Invalid credentials', 'Please check your email and password');
+      Alert.alert('Login Success', 'You have logged in successfully');
+      onLogin(); // Call the onLogin function to proceed after successful login
     }
   };
 
