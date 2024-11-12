@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ProductPreview from './ProductPreview';
 import { Camera } from 'expo-camera';
+import { tailwind } from 'tailwind-rn';
+
 
 const products = [
   { id: '1', name: 'Product 1', image: 'https://via.placeholder.com/100', description: 'This is the description of Product 1.' },

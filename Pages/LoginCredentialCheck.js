@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { Text, View, TextInput, Button, Alert } from 'react-native';
 import { createClient } from '@supabase/supabase-js';
 
-
-const supabaseUrl = 'https://sxxwomaefzwjeubrdgta.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY 
+const supabaseUrl = 'https://sxxwomaefzwjeubrdgta.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY;
 
 // Initialize Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
-
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -29,10 +27,10 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+    <View className="flex-1 justify-center p-4">
+      <Text className="text-2xl mb-4 text-center">Login</Text>
       <TextInput
-        style={styles.input}
+        className="h-10 border border-gray-400 mb-3 p-2"
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -40,7 +38,7 @@ const LoginForm = ({ onLogin }) => {
         keyboardType="email-address"
       />
       <TextInput
-        style={styles.input}
+        className="h-10 border border-gray-400 mb-3 p-2"
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
@@ -50,25 +48,5 @@ const LoginForm = ({ onLogin }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-});
 
 export default LoginForm;

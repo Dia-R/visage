@@ -5,6 +5,7 @@ import { Camera } from 'expo-camera';
 const CameraScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
+  const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
 
   useEffect(() => {
     (async () => {
@@ -19,9 +20,14 @@ const CameraScreen = () => {
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
     <View style={{ flex: 1 }}>
-      <Camera style={{ flex: 1 }} type={Camera.Constants.Type.back} ref={ref => setCameraRef(ref)}>
+      <Camera
+        style={{ flex: 1 }}
+        type={cameraType}
+        ref={ref => setCameraRef(ref)}
+      >
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
@@ -30,7 +36,8 @@ const CameraScreen = () => {
                 const photo = await cameraRef.takePictureAsync();
                 console.log(photo);
               }
-            }}>
+            }}
+          >
             <Text style={styles.text}> Take Picture </Text>
           </TouchableOpacity>
         </View>
