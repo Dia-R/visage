@@ -12,6 +12,7 @@ import EditProfileScreen from './Pages/EditProfileScreen';
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL, SUPABASE_KEY } from '@env';
 
+
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const Stack = createStackNavigator();
@@ -54,7 +55,7 @@ export default function App() {
         <Stack.Screen name="Display1" component={DisplayScreen1} options={{ title: 'Display 1' }} />
         <Stack.Screen name="Display2" component={DisplayScreen2} options={{ title: 'Display 2' }} />
         <Stack.Screen name="Display3" component={DisplayScreen3} options={{ title: 'Display 3' }} />
-        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} options={{ title: 'Product Details' }} />
+        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} options={{ title: 'Product Detail' }} />
         <Stack.Screen name="Camera" component={CameraScreen} options={{ title: 'Camera' }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'My Profile' }} />
         <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
